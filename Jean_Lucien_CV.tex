@@ -1,0 +1,255 @@
+%-------------------------
+% CV in Latex
+% Author  : Jean Lucien Randrinantenaina
+% License : MIT
+%------------------------
+\documentclass[a4paper,9pt]{article}
+\usepackage{cmap}
+\usepackage{accsupp}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\pdfglyphtounicode{f_f}{FB00}
+\pdfglyphtounicode{f_f_i}{FB03}
+\pdfglyphtounicode{f_f_l}{FB04}
+\pdfglyphtounicode{f_i}{FB01}
+\pdfgentounicode=1
+
+\usepackage{fontawesome5}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{etoolbox}
+\usepackage{calc}
+\usepackage{tikz}
+\usepackage{dashrule}
+\usepackage{xparse}
+\usepackage{ifthen}
+\usepackage{xcolor}
+\usepackage{dashrule}
+\usepackage{ulem}
+\usepackage{tabularx}
+\usepackage{changepage}
+\usepackage{graphbox}
+
+\usepackage[explicit]{titlesec}
+\usepackage[default]{lato}
+\usepackage[margin=10mm]{geometry}
+\usepackage[hidelinks]{hyperref}
+\pagestyle{empty}
+\parindent=0pt
+
+%Color
+\definecolor{DefaultBlack}{HTML}{222222}
+\definecolor{DarkGreen}{HTML}{039970}
+\definecolor{LightBlack}{HTML}{2E2E2E}
+\definecolor{LightGray}{HTML}{666666}
+
+\colorlet{default}{DefaultBlack}
+\colorlet{heading}{DarkGreen}
+\colorlet{headingrule}{DarkGreen}
+\colorlet{accent}{DarkGreen}
+\colorlet{emphasis}{LightBlack}
+\colorlet{body}{LightGray}
+
+
+
+%-- Utility
+\newlength{\lfonts}
+\setlength{\lfonts}{\the\fontdimen6\font}
+\newcommand{\pacename}{Location}
+\newcommand{\datename}{Date}
+\newcommand{\cvDate}{\faCalendar*}
+\newcommand{\cvPlace}{\hspace*{1pt}\faMapMarker*}
+
+
+% --- Subdivision
+%\titleformat{command}{format}{label}{sep}{before-code}
+\titleformat{\section}{\large\bfseries}{}{0pt}{\textcolor{heading}{#1}}[\vspace*{-\lfonts}\textcolor{headingrule}{\rule{\linewidth}{1pt}}]
+\titleformat{\subsection}{\bfseries}{}{0pt}{#1}
+\titleformat{\paragraph}{\bfseries}{}{}{\nointerlineskip #1\nobreak}
+\NewDocumentCommand{\divider}{}{\textcolor{gray!30}{\hdashrule{\linewidth}{0.6pt}{3pt}}}
+
+
+
+\NewDocumentCommand{\cvName}{m}{\makebox[\linewidth][l]{\LARGE\bfseries #1}\par\medskip}
+\NewDocumentCommand{\cvLink}{mm}{%
+	\href{#2}{#1\ \faLink}}
+
+\newcommand{\cvTitle}[1]{\makebox[\linewidth][l]{\Large\bfseries #1}\par\medskip}
+
+\newcommand{\cvEducationEntry}[4]{%
+\item[\faGraduationCap]\parbox[t]{\linewidth}{%
+	\makebox[.75\linewidth][l]{\bfseries#1}%
+	\makebox[.25\linewidth][r]{\color{emphasis}\bfseries#2}
+	\makebox[\linewidth][l]{\color{emphasis}#3}}
+	\ifstrequal{#4}{}{}{%
+	\parbox[t]{\linewidth}{\par\smallskip\color{body}#4}}}
+
+\newcommand{\cvExtraEntry}[4]{%
+	\item[\faStar]\parbox[t]{\linewidth}{%
+		\makebox[.75\linewidth][l]{\bfseries#1}%
+		\makebox[.25\linewidth][r]{\color{emphasis}\bfseries#2}
+		\makebox[\linewidth][l]{\color{emphasis}#3}}
+	\ifstrequal{#4}{}{}{%
+		\parbox[t]{\linewidth}{\par\smallskip\color{body}#4}}}
+
+\NewDocumentCommand{\cvProjectTitle}{mm}{%
+\href{#2}{\textbf{#1}\ \faLink}}
+
+\NewDocumentCommand{\cvProjectEntry}{mmmm}{%
+		\makebox[.75\linewidth][l]{%
+		\cvProjectTitle{#1}{#2}}%
+		\makebox[.25\linewidth][r]{\color{emphasis}\bfseries#3}\par
+		\parbox{\linewidth}{\color{body}#4}}
+
+\newcommand{\cvResearchEntry}[4]{%
+		\makebox[.75\linewidth][l]{\bfseries#1}
+		\makebox[.25\linewidth][r]{\color{emphasis}\bfseries#2}\par%
+		\parbox{\linewidth}{\color{emphasis}#3}
+		\makebox[\linewidth][l]{\color{body}#4}%}
+	}
+
+
+% --- Personal Info
+\NewDocumentCommand{\cvAddress}{m}{\color{heading}\faHome\ \color{emphasis}#1}
+\NewDocumentCommand{\cvAge}{m}{\color{heading}\faBirthdayCake\ \color{emphasis}#1}
+\NewDocumentCommand{\cvNationality}{m}{\color{heading}\faFlag\ \color{emphasis}#1}
+\NewDocumentCommand{\cvPhone}{m}{\color{heading}\faPhone\ \color{emphasis}#1}
+\NewDocumentCommand{\cvMail}{m}{\color{heading}\faAt\ \color{emphasis}#1}
+\NewDocumentCommand{\cvWebsite}{m}{\color{heading}\faGlobe\ \color{emphasis}#1}
+\NewDocumentCommand{\cvLinkedIn}{m}{\color{heading}\faLinkedin\ \color{emphasis}#1}
+\NewDocumentCommand{\cvGitHub}{m}{\color{heading}\faGithub\ \color{emphasis}#1}
+\NewDocumentCommand{\cvTwitter}{m}{\color{heading}\faTwitter\ \color{emphasis}#1}
+\NewDocumentCommand{\cvSkype}{m}{\color{heading}\faSkype\ \color{emphasis}#1}
+
+\NewDocumentCommand{\cvtag}{m}{%
+	\tikz[baseline]\node[anchor=base,draw=gray!30,rounded corners,inner xsep=1ex,inner ysep =0.75ex,text height=1.5ex,text depth=.25ex]{#1};
+}
+\NewDocumentCommand{\pointskill}{mmm}{%
+	#1 ~ #2 \hfill%
+	\foreach \x in {1,...,6}{%
+		\space%
+		{\ifnumgreater{\x}{#3}{\color{gray!20}}{\color{gray}}
+			\raisebox{0.5\height-0.4ex}{\scriptsize\faCircle}%
+		}
+	}
+}
+\begin{document}
+\color{default}
+\cvName{Jean Lucien Randrianantenaina}
+\cvTitle{Mathematicians, Machine Learning}
+\begin{minipage}[H][1.75cm][t]{\dimexpr\linewidth}
+	\begin{tabbing}
+		\hspace{6.95cm}\=\kill
+		\cvNationality{Malagasy}\> \cvAddress{7 Papegaai, Stellenbosch, South Africa}\\
+		\cvAge{26 years}\> \cvLinkedIn{\href{https://www.linkedin.com/in/randrianantenaina-jean-lucien-82b98622b/}{Jean Lucien RANDRIANANTENAINA}} \\
+		\cvMail{\href{mailto:rjlucienaina@gmail.com}{rjlucienaina@gmail.com}}\>\cvMail{\href{mailto:lucien.randrianantenaina@aims-cameroon.org}{lucien.randrianantenaina@aims-cameroon.org}} \\
+		\cvWebsite{\href{https://fahazavana.github.io}{fahazavana.github.io}}\> \cvGitHub{\href{https://github.com/Fahazavana}{Fahazavana}}\\
+	\end{tabbing}
+\end{minipage}
+
+{\color{headingrule}\rule{\linewidth}{2pt}}
+
+\section{Sumary}
+I am an enthusiastic problem-solver with a deep passion for mathematics and computer science. I enjoy learning and tackling challenges that require me to apply my interpersonal skills and technical know-how, as well as those that provide opportunities for personal growth. Moreover, I am always ready to face any challenges.
+\section{Educations}
+\begin{itemize}
+	\cvEducationEntry{MSc. in Machine Learning and  Artificial Intelligence}
+	{2024}
+	{Stellenbosch University, South Africa}
+	{}
+
+	\cvEducationEntry{Msc. in Mathematical Sciences -- Fundamental Sciences}{2022 -- 2023}{African Institute for Mathematical Science, Limb\'e Cameroon}
+	{\textbf{CGPA:} 3.52/4}
+
+	\cvEducationEntry{MSc. in Mathematics and Applications -- Fundamental Mathematics}
+	{2019 -- 2023}{Faculty of Science, University of Fianarantsoa, Madagascar}
+	{\textbf{Overall average:} 14.25/20}
+
+	\cvEducationEntry{Bsc. in Mathematics and Application -- Fundamental Mathematics}{2015 -- 2019}{Faculty of Science, University of Fianarantsoa, Madagascar}
+	{\textbf{Overall average:} 14.83/20}
+
+	\cvEducationEntry{Baccalaureate in Technology in Industrial Engineering}{2012 -- 2015}{Technical High School Beravina Fianarantsoa, Madagascar}
+	{\textbf{Overall average:} 13.08/20}
+
+\end{itemize}
+
+
+
+
+\section{Publication and Talks}
+\begin{itemize}
+	\item[\faBook] Florian Luca and Jean Lucien Randrianantenaina,\cvLink{``There Is No Carmichael Number of the Form $2^np^2+1$ with $p$ prime'', INTEGER, Volume 23 (2023)}{http://math.colgate.edu/~integers/x51/x51.pdf}.
+
+	\item[\faComment*] Talk at AIMS Cameroon,  2023: ``Fermat last theorem, with n=4''
+	Presented to AIMS Cameroon students. Supervised by Prof. Dr Hans Georg R\"{u}ck, Universität Kassel.
+\end{itemize}
+\section{Research experiences}
+\begin{itemize}
+	\item[\faFlask] \cvResearchEntry{Recomender System on the 25M and 100k MovieLens dataset (Report)}
+	{2024}
+	{Building a movie recommender system using Matrix Factorisation with Python/Numpy/Scipy. Exploration of algorithm like ALS, SGD, BPR.}
+	{\textbf{Lecturer:} Dr Ulrich Paquet (AIMS South Africa)}
+	\item[\faFlask]\cvResearchEntry{Optimizing U-net architecture for brain tumour segmentation, using Genetic Algorithm (Msc. Thesis)}
+	{2023}{Proposing the usage of genetic algorithm to optimize the hyperparameters of the U-net Architecture.}
+	{\textbf{Supervisor:} Dr Aurelle Tchagna Kuanou (U. of Buea Cameroon) and Dr Joelson Randriamparany (U. Fianarantsoa)}
+	\item[\faFlask]\cvResearchEntry{Carmichael Number (Msc. Thesis)}{2023}
+	{Exploring the concept of Carmichael Numbers and proving the non existance of a Carmichael Number of the form $2^np+1$, with $p$ prime.}
+	{\textbf{Supervisor:} Prof. Florian Luca (U. of Wits, South Africa)}
+	\item[\faFlask]\cvResearchEntry{Radical resolution of a polynomial Equation (BSc. Project)}
+	{2019}
+	{Exporation of radical resolution method and explaining why there is no general formula to solve a polynomial equation of degree higher than five. }
+	{\textbf{Supervisor:} Prof. Solo Randriamahaleo (U. of Fianarantsoa)}
+\end{itemize}
+\section{Skills}
+\hfill\begin{minipage}[t]{0.28\linewidth}
+	\subsection{\faLaptopCode~Programming}
+	\makebox[1.5\lfonts]{}\parbox{\linewidth}{\raggedright
+		\cvtag{Python} \cvtag{R} \cvtag{SageMath} \cvtag{JavaScript} \cvtag{MySql} \cvtag{HTML} \cvtag{CSS} \cvtag{\LaTeX}}
+\end{minipage}\hfill\begin{minipage}[t]{0.28\linewidth}
+
+	\subsection{\faBook~ Library/Framework/Runtime}
+	\makebox[1.5\lfonts]{}\parbox{\linewidth}{\raggedright
+		\cvtag{Numpy} \cvtag{Scipy} \cvtag{Pandas}\cvtag{Scikit-Learn}  \cvtag{Tensorflow}\cvtag{Matplotlib} \cvtag{Django}\cvtag{Flask} \cvtag{Bootstrap}\cvtag{NodeJs}}
+\end{minipage}\hfill\begin{minipage}[t]{0.28\linewidth}
+	\subsection{\faLanguage~Language}
+	\makebox[1.5\lfonts]{}\parbox{\linewidth}{\raggedright
+		\pointskill{\includegraphics[width=1.5em, align=c]{img/GB.png}}{English}{4}\\[2pt]
+		\pointskill{\includegraphics[width=1.5em, align=c]{img/FR.png}}{French}{4}\\[2pt]
+		\pointskill{\includegraphics[width=1.5em, align=c]{img/MG.png}}{Malagasy}{6}\\}
+\end{minipage}\hfill \phantom{}
+
+
+\section{Personal Projects}
+\begin{itemize}
+	\item[\faCode]\cvProjectEntry{MK-Forum}{https://github.com/Fahazavana/MK-Forum}{Continuous Project}{Creation of a forum dedicated to mathematics, using HTML, CSS/Bootstrap, and JS for the front-end, and Python/Django and MySQL for the back end. The project includes user account management, posts, comments, and a voting system.}
+
+	%%%%%%%%
+	\item[\faCode]\cvProjectEntry{FCryptos}{https://github.com/Fahazavana/FCryptos}{2023}{Implementation of various cryptographic systems using Python, like Shift cypher, Vingenere cypher, SPN, RSA, and ENIGMA machine.}
+	%%%%%%%%%%%%%%%
+	\item[\faGamepad]\cvProjectEntry{Unbeatable TicTacToe}{https://github.com/Fahazavana/SAYNA-JAVASCRIPT-MORPION-042022}{2022}{Implementaion of the Tic-Tac-Toe game using HTML, CSS and JavaScript. It has an
+		automated computer player that uses a combination of random placement
+		and min-max algorithm to make each move depending on the chosen level.}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\item[\faGamepad]\cvProjectEntry{Pendu Malagasy}{https://github.com/Fahazavana/Pendu\_Malagasy}{2022}{Implementation of the hangman game using Tkinter an Python. The list of words is Malagasy by default but can be changed easily.}
+	%%%%%%%%%%%%%%%%%%%%%%
+	\item[\faCode]\cvProjectEntry{Bellman Kalaba GUI}{https://github.com/Fahazavana/Bellma-Kalaba}{2021}{Implemention of a graphical interface for graph representation and short-path finder with the Bellman-Kalaba algorithm with Tkinter/Python.}
+\end{itemize}
+\section{Extracuricular}
+\begin{itemize}
+	\cvExtraEntry{Business Management (One month)}{2023}{ESMT Berlin, II Africa, IIP -- Limb\'e, Cameroon}{}{}{}
+	\cvExtraEntry{Back-end developer (Six months)}{2022}{SAYNA \& OIF: DCLIC Program 1.0 -- Fianarantsoa, Madagascar}{}{}
+	\cvExtraEntry{Probabilistic and statistical modeling in epidemiology and environment}{2021}{CIMPA -- Fianarantsoa, Madagascar}{}{}
+\end{itemize}
+\section{Prizes/Awards/Scholarships}
+\begin{itemize}
+	\item[\faTrophy] Fully funded Master's Program in ML and AI: DeepMind Scholarship. \hfill \textbf{\color{emphasis}2024}
+	\item[\faTrophy] Industry Immersion Program (IIP) Scholarship: AIMS, II Africa, ESMT Berlin.\hfill \textbf{\color{emphasis}2023}
+	\item[\faTrophy] Fully Funded Master's Program, AIMS Cameroon: Mastercard Foundation in Cameroon. \hfill \textbf{\color{emphasis}2022}
+	\item[\faTrophy] Fully Funded D-CLIC 1.0 Program: SAYNA and International Organization et de la francophonie (OIF).\hfill \textbf{\color{emphasis}2022}
+\end{itemize}
+\section{Interests}
+\makebox[2.5\lfonts][r]{\faFootballBall ~~}\parbox{\linewidth}{ Hiking, Football, Guitar, Malagasy AI}
+\end{document}
