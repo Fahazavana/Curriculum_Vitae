@@ -8,13 +8,12 @@
 \usepackage{accsupp}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\input{glyphtounicode}
-\pdfgentounicode=1
-\pdfglyphtounicode{f_f}{FB00}
-\pdfglyphtounicode{f_f_i}{FB03}
-\pdfglyphtounicode{f_f_l}{FB04}
-\pdfglyphtounicode{f_i}{FB01}
-\pdfgentounicode=1
+%\input{glyphtounicode}
+%\pdfgentounicode=1
+%\pdfglyphtounicode{f_f}{FB00}
+%\pdfglyphtounicode{f_f_i}{FB03}
+%\pdfglyphtounicode{f_f_l}{FB04}
+%\pdfglyphtounicode{f_i}{FB01}
 
 \usepackage{fontawesome5}
 \usepackage{amsmath}
@@ -138,6 +137,17 @@
 		}
 	}
 }
+
+
+\newcommand{\barskill}[4]{
+% \cvtext{% remove 1pt in width to prevent overfull box warnings
+	#1~#2\hfill\begin{tikzpicture}[scale=1,rounded corners=2pt,very thin]
+	\fill [gray!20] (0,0) rectangle (2.2, 0.15);
+	\fill [gray] (0,0) rectangle (#4*2.2, 0.15);
+	% \node [above left] at (2.2, 0.1) {\textcolor{maincol}{\small #3}};
+\end{tikzpicture}}
+% }
+
 \begin{document}
 \fontsize{8}{10}\selectfont
 \color{default}
@@ -155,36 +165,36 @@
 % {\color{headingrule}\rule{\linewidth}{2pt}}
 
 \section{Summary}
-I am an enthusiastic problem-solver with a deep passion for mathematics and computer science. I enjoy learning and tackling challenges that require me to apply my interpersonal skills and technical know-how, as well as those that provide opportunities for personal growth. Moreover, I am always ready to face any challenges.
+I am an enthusiastic problem-solver with a deep passion for mathematics and computer science. I enjoy learning and tackling challenges that require me to apply my interpersonal skills and technical skill, as well as those that provide opportunities for personal growth. Moreover, I am always ready to face any challenges.
 \section{Educations}
 \begin{itemize}
 	\cvEducationEntry{Stellenbosch University, South Africa}%
 	{Jan. 2024 -- Nov. 2024}%
 	{MSc. in Machine Learning and  Artificial Intelligence}%
-	{\textbf{Revelant courses}: Mathematics for Machine Leaning, Foundation of deep Leaning, Computer Vision, Probabilistic Modeling,\\%
-	\phantom{\textbf{Revelant courses}:} Natural Language Processing, Reiforcement Learning, Optimization for Machine Learning}
+	{\textbf{Relevant courses}: Mathematics for Machine Leaning, Foundation of deep Leaning, Computer Vision, Probabilistic Modelling,\\%
+	\phantom{\textbf{Relevant courses}:} Natural Language Processing, Reinforcement Learning, Optimization for Machine Learning}
 
 	\cvEducationEntry{Faculty of Science, University of Fianarantsoa, Madagascar}%
 	{Jun. 2019 -- Jan. 2024}%
 	{MSc. in Mathematics and Applications -- Fundamental Mathematics \hfill Grade: 14.25/20}%
-	{\textbf{Revelant courses}: Graph Theory, Artificial Intelligence, Numerical Analysis, Optimization, Distribution and PDEs,\\%
-	\phantom{\textbf{Revelant courses}:} Stochastic Simulation, Combinatorics, Algebra}
-	
+	{\textbf{Relevant courses}: Graph Theory, Artificial Intelligence, Numerical Analysis, Optimization, Distribution and PDEs,\\%
+	\phantom{\textbf{Relevant courses}:} Stochastic Simulation, Combinatorics, Algebra}
+
 	\cvEducationEntry{African Institute for Mathematical Science, Limb\'e Cameroon}%
 	{Sep. 2022 -- Jun.  2023}%
-	{Msc. in Mathematical Sciences -- Fundamental Sciences \hfill Grade: 3.52/4}
-	{\textbf{Revelant courses}: Statistical Inference, Numerical Analysis with Python, Algebraic Geometry, Cryptography, \\%
-	\phantom{\textbf{Revelant courses}:} Quantum information theory}
+	{MSc. in Mathematical Sciences -- Fundamental Sciences \hfill Grade: 3.52/4}
+	{\textbf{Relevant courses}: Statistical Inference, Numerical Analysis with Python, Algebraic Geometry, Cryptography, \\%
+	\phantom{\textbf{Relevant courses}:} Quantum information theory}
 
 	\cvEducationEntry{Faculty of Science, University of Fianarantsoa, Madagascar}%
 	{Nov. 2015 -- Apr. 2019}%
-	{Bsc. in Mathematics and Application -- Fundamental Mathematics \hfill Grade: 14.83/20}
-	{\textbf{Revelant courses}: Linear Algebra, Analysis, Algebra, Algorithm, Probability, Statistics, Toplogy}
+	{BSc. in Mathematics and Application -- Fundamental Mathematics \hfill Grade: 14.83/20}
+	{\textbf{Relevant courses}: Linear Algebra, Algebra, Analysis, Algorithm, Probability, Statistics, Topology}
 
-	% \cvEducationEntry{Baccalaureate in Technology in Industrial Engineering}%
-	% {Sep. 2012 -- Jul. 2015}%
-	% {Technical High School Beravina Fianarantsoa, Madagascar. \hfill Grade: 13.08/20}%
-	% {\textbf{Revelant courses}: Automation, Material resistance, Industrial draw}%   
+	 \cvEducationEntry{Baccalaureate in Technology in Industrial Engineering}%
+	 {Sep. 2012 -- Jul. 2015}%
+	 {Technical High School Beravina Fianarantsoa, Madagascar. \hfill Grade: 13.08/20}%
+	 {\textbf{Relevant courses}: Automation, Material resistance, Industrial draw}%
 \end{itemize}
 
 \section{Publication and Talks}
@@ -194,14 +204,14 @@ I am an enthusiastic problem-solver with a deep passion for mathematics and comp
 	\item[\faComment*] Talk at AIMS Cameroon,  2023: ``Fermat last theorem, with n=4''
 	      Presented to AIMS Cameroon students. Supervised by Prof. Dr Hans Georg R\"{u}ck, Universität Kassel.
 \end{itemize}
-\section{Research experiences}
+\section{Research Experiences}
 \begin{itemize}
 	\item[\faFlask]\cvResearchEntry{Optimizing U-net architecture for brain tumour segmentation, using Genetic Algorithm (Msc. Thesis)}%
 	      {2023}%
-		  {Proposing the usage of genetic algorithm to optimize the hyperparameters of the U-net Architecture.}
+		  {Proposed and implemented a genetic algorithm approach to optimize hyperparameters of the U-net architecture for improved\\ brain tumour segmentation accuracy.}
 	      {\textbf{Supervisor:} Dr Aurelle Tchagna Kuanou (U. of Buea Cameroon) and Dr Joelson Randriamparany (U. Fianarantsoa)}
 	\item[\faFlask]\cvResearchEntry{Carmichael Number (Msc. Thesis)}{2023}
-	      {Exploring the concept of Carmichael Numbers and proving the non existance of a Carmichael Number of the form $2^np+1$, with $p$ prime.}
+	      {Investigated the properties of Carmichael Numbers and proved the non-existence of a Carmichael Number of the forms $2^np+1$, with $p$ prime.}
 	      {\textbf{Supervisor:} Prof. Florian Luca (U. of Wits, South Africa)}
 	\item[\faFlask]\cvResearchEntry{Radical resolution of a polynomial Equation (BSc. Project)}
 	      {2019}
@@ -212,12 +222,17 @@ I am an enthusiastic problem-solver with a deep passion for mathematics and comp
 \hfill\begin{minipage}[t]{0.28\linewidth}
 	\subsection{\faLaptopCode~Programming}
 	\makebox[1.5\lfonts]{}\parbox{\linewidth}{\raggedright
-		\cvtag{Python} \cvtag{R} \cvtag{SageMath} \cvtag{JavaScript} \cvtag{MySql} \cvtag{HTML} \cvtag{CSS} \cvtag{\LaTeX}}
+	\barskill{\faPython}{Python} {2+ yrs} {.6}\\[2pt]
+	\barskill{\faJsSquare}{JavaScript/NodeJs} {1+ yrs} {0.4}\\[2pt]
+	\barskill{\faHtml5}{HTML}{2+ yrs}{0.75}\\[2pt]
+	\barskill{\faCss3}{CSS/SASS}{2+ yrs}{0.6}\\[2pt]
+	\barskill{\textbf{\LaTeX}}{} {5+ yrs}{0.6}\\
+}
 \end{minipage}\hfill\begin{minipage}[t]{0.28\linewidth}
 
-	\subsection{\faBook~ Library/Framework/Runtime}
+	\subsection{\faBook~ Library/Framework/Versioning}
 	\makebox[1.5\lfonts]{}\parbox{\linewidth}{\raggedright
-		\cvtag{Numpy} \cvtag{Scipy} \cvtag{Pandas}\cvtag{Scikit-Learn}\cvtag{PyTorch}\cvtag{Tensorflow}\cvtag{Matplotlib} \cvtag{Django}\cvtag{Flask} \cvtag{Bootstrap}\cvtag{NodeJs}}
+		\cvtag{Numpy} \cvtag{PyTorch}\cvtag{Tensorflow} \cvtag{Pandas}\cvtag{Scikit-Learn} \cvtag{Matplotlib} \cvtag{Django} \cvtag{Flask} \cvtag{Bootstrap}\cvtag{Git}}
 \end{minipage}\hfill\begin{minipage}[t]{0.28\linewidth}
 	\subsection{\faLanguage~Language}
 	\makebox[1.5\lfonts]{}\parbox{\linewidth}{\raggedright
@@ -229,15 +244,15 @@ I am an enthusiastic problem-solver with a deep passion for mathematics and comp
 
 \section{Projects}
 \begin{itemize}
-	\item[\faCode]\cvProjectEntry{Movie Recomender System}%
+	\item[\faCode]\cvProjectEntry{Movie Recommender System}%
 	{}%
-	{feb. 2024}%
-	{Lagre scale recomender system, using probabilistic matrix factorisation and trained on the 25M MovieLens dataset}%
+	{Feb. 2024}%
+	{Large-scale recommender system, using probabilistic matrix factorization and trained on the 25M MovieLens dataset}%
 	%%%%%%%%%
 	\item[\faCode]\cvProjectEntry{MK-Forum}%
 	{https://github.com/Fahazavana/MK-Forum}%
 	{2023}%
-	{Creation of a forum dedicated to mathematics, using HTML, CSS/Bootstrap, and JS for the front-end, and Python/Django and MySQL for the back end. The project includes user account management, posts, comments, and a voting system.}
+	{Creation of a forum dedicated to mathematics, using HTML, CSS/Bootstrap, and JS for the front end, and Python/Django and MySQL for the back end. The project includes user account management, posts, comments, and a voting system.}
 	%%%%%%%%
 	\item[\faCode]\cvProjectEntry{FCryptos}{https://github.com/Fahazavana/FCryptos}{2023}{Implementation of various cryptographic systems using Python, like Shift cypher, Vingenere cypher, SPN, RSA, and ENIGMA machine.}
 	      %%%%%%%%%%%%%%%
@@ -249,7 +264,7 @@ I am an enthusiastic problem-solver with a deep passion for mathematics and comp
 	      %%%%%%%%%%%%%%%%%%%%%%
 	\item[\faCode]\cvProjectEntry{Bellman Kalaba GUI}{https://github.com/Fahazavana/Bellma-Kalaba}{2021}{Implemention of a graphical interface for graph representation and short-path finder with the Bellman-Kalaba algorithm with Tkinter/Python.}
 \end{itemize}
-\section{Cerifications}
+\section{Certifications}
 \begin{itemize}
 	\cvExtraEntry{Business Management (One month)}{Jully 2023}{ESMT Berlin, II Africa, IIP -- Limb\'e, Cameroon}{
 		One moth of intensive course for Business managements, and soft skills developements.
@@ -263,19 +278,28 @@ I am an enthusiastic problem-solver with a deep passion for mathematics and comp
 	\item[\faTrophy] Fully funded Master's Program in ML and AI: DeepMind Scholarship. \hfill \textbf{\color{emphasis}2024}
 	\item[\faTrophy] Industry Immersion Program (IIP) Scholarship: AIMS, II Africa, ESMT Berlin.\hfill \textbf{\color{emphasis}2023}
 	\item[\faTrophy] Fully Funded Master's Program, AIMS Cameroon: Mastercard Foundation in Cameroon. \hfill \textbf{\color{emphasis}2022}
-	\item[\faTrophy] Fully Funded D-CLIC 1.0 Program: SAYNA and International Organization et de la francophonie (OIF).\hfill \textbf{\color{emphasis}2022}
+	\item[\faTrophy] Fully Funded D-CLIC 1.0 Programs: SAYNA  the Organisation International et de la Francophonie (OIF).\hfill \textbf{\color{emphasis}2022}
 \end{itemize}
 % \section{Interests}
 % \makebox[2.5\lfonts][r]{\faFootballBall ~~}\parbox{\linewidth}{ Hiking, Football, Guitar, Malagasy AI}
 \section{References}
 \begin{itemize}
-	\item Prof. Florian Luca, Departments of Mathematics.\\
-		Univesity of the Witwatersrand, South Africa, +270 117 176 243, \href{florian.luca@wits.ac.za}{florian.luca@wits.ac.za}
-	\item Dr. Aurelle Tchagna Kuanou
-	\item Dr. Joelson Randriamparany
-	\item Prof. Andreas Buchleitner,\\
-	Department for Quantum Optics and Statistics
-		Institute of Physics Albert-Ludwigs, Universität of Freiburg \\
+	\item Prof. Florian Luca, School of Mathematics.\\
+		Univesity of the Witwatersrand, South Africa,\\
+		+270 117 176 243,\\
+		\href{florian.luca@wits.ac.za}{florian.luca@wits.ac.za}
+	\item Dr Aurelle Tchagna Kuanou, College of Technology\\
+	University of Buea, Cameroon\\
+	+237 696 263 641\\
+	\href{tchagna.aurelle@ubea.cm}{tchagna.aurelle@ubea.cm}
+	\item Dr Joelson Randriamparany, Department of Mathematics and Applications\\
+	Faculty of Sciences, University of Fianarantsoa, Madagascar\\
+	+261 343 731 768\\
+	\href{Joelson.randriam@gmail.com}{Joelson.randriam@gmail.com}
+
+	\item Prof. Andreas Buchleitner,Department for Quantum Optics and Statistics\\
+		Institute of Physics Albert-Ludwigs, Universität of Freiburg, Germany \\
+		+49 761 203 5830\\
 		\href{a.buchleithner@physik.uni-freiburg.de}{a.buchleithner@physik.uni-freiburg.de}
 \end{itemize}
 \end{document}
