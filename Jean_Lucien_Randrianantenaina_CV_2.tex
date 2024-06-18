@@ -3,17 +3,12 @@
 % Author  : Jean Lucien Randrinantenaina
 % License : MIT
 %------------------------
-\documentclass[a4paper, 9pt]{article}
+\documentclass[a4paper, oneside]{article}
 \usepackage{cmap}
 \usepackage{accsupp}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-%\input{glyphtounicode}
-%\pdfgentounicode=1
-%\pdfglyphtounicode{f_f}{FB00}
-%\pdfglyphtounicode{f_f_i}{FB03}
-%\pdfglyphtounicode{f_f_l}{FB04}
-%\pdfglyphtounicode{f_i}{FB01}
+\usepackage{moresize}
 
 \usepackage{fontawesome5}
 \usepackage{amsmath}
@@ -103,13 +98,13 @@
 		\makebox[.75\linewidth][l]{%
 		\cvProjectTitle{#1}{#2}}%
 		\makebox[.25\linewidth][r]{\color{emphasis}\bfseries#3}\par
-		\parbox{\linewidth}{\color{body}#4}}
+		\parbox{0.95\linewidth}{\color{body}#4}}
 
 \newcommand{\cvResearchEntry}[4]{%
 		\makebox[.75\linewidth][l]{\bfseries#1}
-		\makebox[.25\linewidth][r]{\color{emphasis}\bfseries#2}\par\vspace*{-\lfonts}%
-		\parbox{\linewidth}{\color{emphasis}#3}
-		\makebox[\linewidth][l]{\color{body}#4}%}
+		\makebox[.25\linewidth][r]{\color{emphasis}\bfseries#2}\par\vspace*{-0.25\lfonts}%
+		\parbox{0.9\linewidth}{\color{emphasis}#3}\par
+		\makebox[0.\linewidth][l]{\color{body}#4}%}
 	}
 
 
@@ -149,7 +144,7 @@
 % }
 
 \begin{document}
-\fontsize{8}{10}\selectfont
+\fontsize{9}{10}\selectfont
 \color{default}
 \cvName{Jean Lucien Randrianantenaina}\cvTitle{\hfill Mathematicians, AI Enthusiast}
 \par\smallskip
@@ -202,13 +197,13 @@ I am an enthusiastic problem-solver with a deep passion for mathematics and comp
 	\item[\faBook] Florian Luca and Jean Lucien Randrianantenaina,\cvLink{``There Is No Carmichael Number of the Form $2^np^2+1$ with $p$ prime'',\\ INTEGER, Volume 23 (2023)}{http://math.colgate.edu/~integers/x51/x51.pdf}.
 
 	\item[\faComment*] Talk at AIMS Cameroon,  2023: ``Fermat last theorem, with n=4''
-	      Presented to AIMS Cameroon students. Supervised by Prof. Dr Hans Georg R\"{u}ck, Universität Kassel.
+	      Presented to AIMS Cameroon students.\\ Supervised by Prof. Dr Hans Georg R\"{u}ck, Universität Kassel.
 \end{itemize}
 \section{Research Experiences}
 \begin{itemize}
 	\item[\faFlask]\cvResearchEntry{Optimizing U-net architecture for brain tumour segmentation, using Genetic Algorithm (Msc. Thesis)}%
 	      {2023}%
-		  {Proposed and implemented a genetic algorithm approach to optimize hyperparameters of the U-net architecture for improved\\ brain tumour segmentation accuracy.}
+		  {Proposed and implemented a genetic algorithm approach to optimize hyperparameters of the U-net architecture for improved brain tumour segmentation accuracy.}
 	      {\textbf{Supervisor:} Dr Aurelle Tchagna Kuanou (U. of Buea Cameroon) and Dr Joelson Randriamparany (U. Fianarantsoa)}
 	\item[\faFlask]\cvResearchEntry{Carmichael Number (Msc. Thesis)}{2023}
 	      {Investigated the properties of Carmichael Numbers and proved the non-existence of a Carmichael Number of the forms $2^np+1$, with $p$ prime.}
@@ -266,18 +261,18 @@ I am an enthusiastic problem-solver with a deep passion for mathematics and comp
 \end{itemize}
 \section{Certifications}
 \begin{itemize}
-	\cvExtraEntry{Business Management (One month)}{Jully 2023}{ESMT Berlin, II Africa, IIP -- Limb\'e, Cameroon}{
+	\cvExtraEntry{Business Management }{Jully 2023}{ESMT Berlin, II Africa, IIP -- Limb\'e, Cameroon}{
 		One moth of intensive course for Business managements, and soft skills developements.
 	}{}{}
-	\cvExtraEntry{Back-end developer (Six months)}{Jan. -- Aug. 2022}{SAYNA \& OIF: DCLIC Program 1.0 -- Fianarantsoa, Madagascar}{
+	\cvExtraEntry{Back-end developer }{Jan. -- Aug. 2022}{SAYNA \& OIF: DCLIC Program 1.0 -- Fianarantsoa, Madagascar}{
 		Six months course of website developpents: HTML5, CSS3, JavaScript, NodeJs, MySQL.
 	}{}
 \end{itemize}
 \section{Prizes/Awards/Scholarships}
 \begin{itemize}
 	\item[\faTrophy] Fully funded Master's Program in ML and AI: DeepMind Scholarship. \hfill \textbf{\color{emphasis}2024}
-	\item[\faTrophy] Industry Immersion Program (IIP) Scholarship: AIMS, II Africa, ESMT Berlin.\hfill \textbf{\color{emphasis}2023}
-	\item[\faTrophy] Fully Funded Master's Program, AIMS Cameroon: Mastercard Foundation in Cameroon. \hfill \textbf{\color{emphasis}2022}
+	\item[\faTrophy] Industry Immersion Program (IIP) Scholarship: AIMS; II Africa; ESMT Berlin Germany.\hfill \textbf{\color{emphasis}2023}
+	\item[\faTrophy] Fully Funded Master's Program, AIMS Cameroon: Mastercard Foundation. \hfill \textbf{\color{emphasis}2022}
 	\item[\faTrophy] Fully Funded D-CLIC 1.0 Programs: SAYNA  the Organisation International et de la Francophonie (OIF).\hfill \textbf{\color{emphasis}2022}
 \end{itemize}
 % \section{Interests}
